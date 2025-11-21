@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CryptoIA - Dashboard</title>
+
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">CI</div>
+        <div class="brand-text">
+          <div class="brand-title">CryptoIA</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#" class="nav-link active" data-view="consultas">📊 Consultas</a>
+        <a href="#" class="nav-link" data-view="compra">💰 Compra</a>
+        <a href="#" class="nav-link" data-view="transacciones">🧾 Transacciones</a>
+        <a href="#" class="nav-link" data-view="venta">💸 Venta</a>
+        <a href="#" class="nav-link" data-view="ia">🤖 IA</a>
+        <a href="#" class="nav-link" data-view="admin">⚙️ Admin</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <small>Proyecto • CryptoIA</small>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <header class="topbar">
+        <div class="search-bar">
+          <input id="globalSearch" type="search" placeholder="Buscar criptomonedas, transacciones..." />
+        </div>
+
+        <div class="top-actions">
+          <button id="themeToggle" class="theme-btn" title="Cambiar tema">🌙</button>
+          <div class="profile">
+            <div class="avatar">J</div>
+            <div class="profile-meta">
+              <div class="name">Juliana</div>
+              <div class="small">Saldo: $50,000</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      
+      <section id="consultas" class="view active">
+        <div class="grid-two">
+          <div class="panel portfolio-panel">
+            <div class="portfolio-head">
+              <div>
+                <div class="portfolio-title">Portafolio</div>
+                <div id="portfolioValue" class="portfolio-value">$0</div>
+                <div class="portfolio-sub">Valor total</div>
+              </div>
+              <div class="portfolio-change" id="portfolioChange">+0%</div>
+            </div>
+
+            <div class="chart-wrap">
+              <canvas id="portfolioChart"></canvas>
+            </div>
+          </div>
+
+          <div class="panel holdings-panel">
+            <div class="panel-title">Tenencias actuales</div>
+            <div id="holdingsList" class="holdings-list">
+              <!-- JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="panel history-panel">
+          <div class="history-header">
+            <h3>Historial completo</h3>
+            <button id="exportCsv" class="pill">Exportar CSV</button>
+          </div>
+          <table class="history-table">
+            <thead>
+              <tr><th>ID</th><th>FechaHora</th><th>Tipo</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
+            </thead>
+            <tbody id="historyTable">
+              <!-- JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="compra" class="view">
+        <div class="panel form-panel">
+          <h3>Compra de Criptomonedas</h3>
+
+          <label>Moneda</label>
+          <select id="buyCoin"></select>
+
+          <label>Cantidad</label>
+          <input id="buyAmount" type="number" min="0" step="0.0001" value="0">
+
+          <label>Precio (USD)</label>
+          <input id="buyPrice" type="number" min="0" step="0.01" value="0">
+
+          <label>Total</label>
+          <div id="buyTotal" class="total-box">$0</div>
+
+          <button id="buyConfirm" class="btn-primary">Confirmar compra</button>
+        </div>
+
+        <div class="panel">
+          <h4>Compras recientes</h4>
+          <table class="simple-table" id="buyTable">
+            <thead><tr><th>ID</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead>
+            <tbody><!-- JS --></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="transacciones" class="view">
+        <div class="panel form-panel">
+          <h3>Registrar Transacción</h3>
+          <label>Tipo</label>
+          <select id="transType"><option>Compra</option><option>Venta</option><option>Transferencia</option></select>
+
+          <label>Criptomoneda</label>
+          <select id="transCoin"></select>
+
+          <label>Cantidad</label>
+          <input id="transAmount" type="number" min="0" step="0.0001" value="0">
+
+          <label>Precio (USD)</label>
+          <input id="transPrice" type="number" min="0" step="0.01" value="0">
+
+          <label>Fecha y hora</label>
+          <input id="transDatetime" type="datetime-local">
+
+          <div id="transTotal" class="total-box">$0</div>
+
+          <button id="transConfirm" class="btn-primary">Registrar transacción</button>
+        </div>
+
+        <div class="panel">
+          <h4>Transacciones recientes</h4>
+          <table class="simple-table" id="transTable">
+            <thead><tr><th>ID</th><th>FechaHora</th><th>Tipo</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead>
+            <tbody><!-- JS --></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="venta" class="view">
+        <div class="panel">
+          <h3>Venta</h3>
+          <p>Funcionalidad pendiente — aquí podremos implementar venta rápida.</p>
+        </div>
+      </section>
+
+      <section id="ia" class="view">
+        <div class="panel">
+          <h3>IA</h3>
+          <p>Asistente IA (próximamente).</p>
+        </div>
+      </section>
+
+      <section id="admin" class="view">
+        <div class="panel">
+          <h3>Admin</h3>
+          <p>Panel administrativo.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
