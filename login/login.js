@@ -34,14 +34,12 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     // Guardar usuario en localStorage
     localStorage.setItem("loggedUser", JSON.stringify(foundUser));
 
-    // ============================================
     //   REDIRECCIÓN SEGÚN ROL
-    // ============================================
+    
     if (foundUser.rol === "admin") {
-        // 🔥 Si es admin → abrir admin/admin.html
         window.location.href = "../admin/admin.html";
+
     } else {
-        // 🔥 Usuario normal → index.html
         window.location.href = "../index.html";
     }
 });

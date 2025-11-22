@@ -1,6 +1,4 @@
-// ============================
 //  Protegemos acceso del admin
-// ============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -24,10 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("adminName").textContent = user.nombre;
     document.getElementById("adminBalance").textContent = `$${Number(user.saldo).toLocaleString()}`;
 
-    // ============================
     //  BOTÓN DE CERRAR SESIÓN
-    // ============================
-    const logoutBtn = document.getElementById("logoutBtn");
+       const logoutBtn = document.getElementById("logoutBtn");
 
     logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("loggedUser");

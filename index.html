@@ -5,14 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>CryptoIA - Dashboard</title>
-
-  <!-- Google Font: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Chart.js -->
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -20,8 +16,7 @@
 
   <div class="app">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+     <aside class="sidebar">
       <div class="brand">
         <div class="logo">CI</div>
         <div class="brand-text">
@@ -42,10 +37,8 @@
       </div>
     </aside>
 
-    <!-- MAIN AREA -->
     <main class="main">
 
-      <!-- TOP BAR -->
       <header class="topbar">
         <div class="search-bar">
           <input id="globalSearch" type="search" placeholder="Buscar criptomonedas, transacciones..." />
@@ -66,11 +59,9 @@
         </div>
       </header>
 
-      <!-- CONSULTAS -->
-      <section id="consultas" class="view active">
+       <section id="consultas" class="view active">
         <div class="grid-two">
 
-          <!-- Portafolio -->
           <div class="panel portfolio-panel">
             <div class="portfolio-head">
               <div>
@@ -86,14 +77,12 @@
             </div>
           </div>
 
-          <!-- Tenencias -->
           <div class="panel holdings-panel">
             <div class="panel-title">Tenencias actuales</div>
             <div id="holdingsList" class="holdings-list"></div>
           </div>
         </div>
 
-        <!-- Historial -->
         <div class="panel history-panel">
           <div class="history-header">
             <h3>Historial completo</h3>
@@ -117,7 +106,6 @@
         </div>
       </section>
 
-      <!-- COMPRA -->
       <section id="compra" class="view">
         <div class="panel form-panel">
           <h3>Compra de Criptomonedas</h3>
@@ -150,7 +138,6 @@
         </div>
       </section>
 
-      <!-- TRANSACCIONES -->
       <section id="transacciones" class="view">
         <div class="panel form-panel">
           <h3>Registrar Transacción</h3>
@@ -192,11 +179,9 @@
         </div>
       </section>
 
-      <!-- VENTA -->
       <section id="venta" class="view">
         <div class="grid-two">
 
-          <!-- Criptos para vender -->
           <div class="panel portfolio-panel">
             <div class="portfolio-head">
               <div>
@@ -208,7 +193,6 @@
             <div id="sellPortfolioList" class="holdings-list"></div>
           </div>
 
-          <!-- Precio -->
           <div class="panel">
             <h3>Precio Actual</h3>
             <div id="sellCurrentPrice" class="portfolio-value">$0</div>
@@ -221,7 +205,6 @@
 
         </div>
 
-        <!-- Formulario de venta -->
         <div class="panel form-panel" style="margin-top:20px;">
           <h3>Formulario de Venta</h3>
 
@@ -237,7 +220,6 @@
           <button id="sellConfirm" class="btn-primary">Confirmar Venta</button>
         </div>
 
-        <!-- Ventas -->
         <div class="panel" style="margin-top:20px;">
           <h4>Ventas Realizadas</h4>
           <table class="simple-table" id="sellTable">
@@ -251,7 +233,6 @@
         </div>
       </section>
 
-      <!-- IA -->
       <section id="ia" class="view">
         <div class="panel form-panel">
           <h3>Asistente Inteligente</h3>
@@ -260,7 +241,7 @@
           <label>Consulta</label>
 
           <div class="crypto-tip">
-            💡 <span>Ejemplo:</span> ¿Qué criptomoneda tuvo mejor rendimiento esta semana?
+            <span>Ejemplo:</span> ¿Qué criptomoneda tuvo mejor rendimiento esta semana?
           </div>
 
           <button id="iaAsk" class="btn-primary">Preguntar a la IA</button>
@@ -275,7 +256,6 @@
     </main>
   </div>
 
-  <!-- Tu script principal -->
   <script src="script.js" defer></script>
 
 </body>

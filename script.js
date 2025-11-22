@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /************************************
-   * 🔐 MIDDLEWARE — comprobar sesión
-   ************************************/
-  function checkAuth() {
+  //MIDDLEWARE — comprobar sesión
+    function checkAuth() {
     const stored = localStorage.getItem("loggedUser");
     if (!stored) {
       window.location.href = "login/login.html";
@@ -16,9 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!userSession) return;
 
 
-  /************************************
-   * 🧭 SISTEMA DE NAVEGACIÓN (ARREGLADO)
-   ************************************/
+  //SISTEMA DE NAVEGACIÓN (ARREGLADO)
   document.querySelectorAll(".nav-link").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -38,9 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  /************************************
-   * 👤 Mostrar datos del usuario (UI)
-   ************************************/
+  //Mostrar datos del usuario
+
   const displayUserEl = document.getElementById("displayUser");
   const avatarLogoEl = document.getElementById("avatarLogo");
   const displayBalanceEl = document.getElementById("displayBalance");
@@ -57,9 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (portfolioValueEl) portfolioValueEl.textContent = `$${saldo.toLocaleString()}`;
 
 
-  /************************************
-   * 🔓 Logout
-   ************************************/
+  //Logout
+   
   const logoutBtn = document.getElementById("logoutBtn");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
@@ -69,10 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /************************************
-   * 🎭 Permisos por rol (ARREGLADO)
-   ************************************/
-  function applyRolePermissions() {
+  //Permisos por rol (ARREGLADO)
+    function applyRolePermissions() {
     const role = (userSession.rol ?? "usuario").toLowerCase();
 
     const navTransacciones = document.querySelector('[data-view="transacciones"]');
@@ -88,9 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
   applyRolePermissions();
 
 
-  /************************************
-   * 🔁 HOLDINGS — PERSISTENCIA
-   ************************************/
+  //HOLDINGS — PERSISTENCIA
+   
   const holdingsKey = `holdings_${username.toLowerCase()}`;
 
   const defaultHoldings = [
@@ -115,9 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let holdings = getHoldings();
 
 
-  /************************************
-   *  ⭐ HOLDINGS RENDER (CORREGIDO)
-   ************************************/
+  //HOLDINGS RENDER (CORREGIDO)
   function renderHoldingsList() {
     const lists = [
       document.getElementById("holdingsList"),
@@ -150,9 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderHoldingsList();
 
 
-  /************************************
-   * 🪙 Lista de criptos
-   ************************************/
+  //Lista de criptos
+   
   const cryptos = ["BTC", "ETH", "ADA", "SOL", "BNB", "XRP"];
 
   function fillSelects() {
@@ -171,10 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
   fillSelects();
 
 
-  /************************************
-   * 📈 PRECIOS SIMULADOS
-   ************************************/
-  const marketPrices = {
+  //PRECIOS SIMULADOS
+   const marketPrices = {
     BTC: 64800,
     ETH: 3350,
     SOL: 122,
@@ -186,9 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getPrice = coin => marketPrices[coin] || 0;
 
 
-  /************************************
-   * 💰 Compra
-   ************************************/
+  //Compra
   const buyAmountEl = document.getElementById("buyAmount");
   const buyPriceEl = document.getElementById("buyPrice");
   const buyCoinEl = document.getElementById("buyCoin");
@@ -226,9 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /************************************
-   * 🧾 Transacciones
-   ************************************/
+  //Transacciones
   const transTypeEl = document.getElementById("transType");
   const transCoinEl = document.getElementById("transCoin");
   const transAmountEl = document.getElementById("transAmount");
@@ -349,9 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-  /************************************
-   * 🔎 Buscador global
-   ************************************/
+  //Buscador global
   const globalSearch = document.getElementById("globalSearch");
   if (globalSearch) {
     globalSearch.addEventListener("input", e => {
@@ -370,9 +350,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /************************************
-   * 🧾 Exportar CSV
-   ************************************/
+//Exportar CSV
+
   const exportBtn = document.getElementById("exportCsv");
   if (exportBtn) {
     exportBtn.addEventListener("click", () => {
@@ -409,9 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /************************************
-   * 📈 Chart
-   ************************************/
+  //Chart
   const ctx = document.getElementById("portfolioChart");
   if (ctx && window.Chart) {
     new Chart(ctx, {
@@ -437,9 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /************************************
-   * Inicializar renderings visibles
-   ************************************/
+  //Inicializar renderings visibles
   function initRender() {
     renderHoldingsList();
 

@@ -2,8 +2,8 @@
 
 :root{
   --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  --bg-grad-1: linear-gradient(135deg,#dbeafe 0%, #e9d5ff 100%); /* light gradient */
-  --bg-grad-2: linear-gradient(180deg,#0b1226 0%, #301034 100%);  /* dark gradient */
+  --bg-grad-1: linear-gradient(135deg,#dbeafe 0%, #e9d5ff 100%); 
+  --bg-grad-2: linear-gradient(180deg,#0b1226 0%, #301034 100%); 
   --panel: rgba(255,255,255,0.04);
   --card: rgba(255,255,255,0.02);
   --muted: #9aa5b1;
@@ -127,7 +127,7 @@ body{
   .sidebar{display:flex;width:100%;border-radius:10px;margin-bottom:8px}
   .app{flex-direction:column;padding:10px}
 }
-/* --- Cuadro de ejemplo para el módulo IA (final) --- */
+/* Cuadro de ejemplo para IA*/
 .crypto-tip {
     width: 100%;
     background: linear-gradient(90deg, rgba(108, 92, 231, 0.15), rgba(72, 52, 212, 0.10));
