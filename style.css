@@ -1,7 +1,4 @@
-/* CryptoIA - style.css
-   Tipografía: Poppins
-   Diseño: degradado, light/dark, responsive
-*/
+
 
 :root{
   --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -129,4 +126,40 @@ body{
   .grid-two{grid-template-columns:1fr}
   .sidebar{display:flex;width:100%;border-radius:10px;margin-bottom:8px}
   .app{flex-direction:column;padding:10px}
+}
+/* --- Cuadro de ejemplo para el módulo IA (final) --- */
+.crypto-tip {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(108, 92, 231, 0.15), rgba(72, 52, 212, 0.10));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    color: #e5e5ff;
+    font-size: 0.95rem;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 18px rgba(108, 92, 231, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crypto-tip span {
+    font-weight: 600;
+    color: #a29bff;
+}
+.btn-logout {
+    background: #e63946;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    transition: 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: #c53038;
+    transform: scale(1.03);
 }

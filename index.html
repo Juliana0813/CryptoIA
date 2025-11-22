@@ -1,18 +1,25 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>CryptoIA - Dashboard</title>
 
-  <!-- Poppins -->
+  <!-- Google Font: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
+
   <div class="app">
+
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="brand">
@@ -28,7 +35,6 @@
         <a href="#" class="nav-link" data-view="transacciones">🧾 Transacciones</a>
         <a href="#" class="nav-link" data-view="venta">💸 Venta</a>
         <a href="#" class="nav-link" data-view="ia">🤖 IA</a>
-        <a href="#" class="nav-link" data-view="admin">⚙️ Admin</a>
       </nav>
 
       <div class="sidebar-footer">
@@ -36,8 +42,10 @@
       </div>
     </aside>
 
-    <!-- MAIN -->
+    <!-- MAIN AREA -->
     <main class="main">
+
+      <!-- TOP BAR -->
       <header class="topbar">
         <div class="search-bar">
           <input id="globalSearch" type="search" placeholder="Buscar criptomonedas, transacciones..." />
@@ -45,19 +53,24 @@
 
         <div class="top-actions">
           <button id="themeToggle" class="theme-btn" title="Cambiar tema">🌙</button>
+
           <div class="profile">
-            <div class="avatar">J</div>
+            <div class="avatar" id="avatarLogo">U</div>
             <div class="profile-meta">
-              <div class="name">Juliana</div>
-              <div class="small">Saldo: $50,000</div>
+              <div class="name" id="displayUser"></div>
+              <div class="small" id="displayBalance"></div>
             </div>
           </div>
+
+          <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
         </div>
       </header>
 
-      
+      <!-- CONSULTAS -->
       <section id="consultas" class="view active">
         <div class="grid-two">
+
+          <!-- Portafolio -->
           <div class="panel portfolio-panel">
             <div class="portfolio-head">
               <div>
@@ -65,7 +78,7 @@
                 <div id="portfolioValue" class="portfolio-value">$0</div>
                 <div class="portfolio-sub">Valor total</div>
               </div>
-              <div class="portfolio-change" id="portfolioChange">+0%</div>
+              <div id="portfolioChange" class="portfolio-change">+0%</div>
             </div>
 
             <div class="chart-wrap">
@@ -73,30 +86,38 @@
             </div>
           </div>
 
+          <!-- Tenencias -->
           <div class="panel holdings-panel">
             <div class="panel-title">Tenencias actuales</div>
-            <div id="holdingsList" class="holdings-list">
-              <!-- JS -->
-            </div>
+            <div id="holdingsList" class="holdings-list"></div>
           </div>
         </div>
 
+        <!-- Historial -->
         <div class="panel history-panel">
           <div class="history-header">
             <h3>Historial completo</h3>
             <button id="exportCsv" class="pill">Exportar CSV</button>
           </div>
+
           <table class="history-table">
             <thead>
-              <tr><th>ID</th><th>FechaHora</th><th>Tipo</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
+              <tr>
+                <th>ID</th>
+                <th>FechaHora</th>
+                <th>Tipo</th>
+                <th>Cripto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+              </tr>
             </thead>
-            <tbody id="historyTable">
-              <!-- JS -->
-            </tbody>
+            <tbody id="historyTable"></tbody>
           </table>
         </div>
       </section>
 
+      <!-- COMPRA -->
       <section id="compra" class="view">
         <div class="panel form-panel">
           <h3>Compra de Criptomonedas</h3>
@@ -105,10 +126,10 @@
           <select id="buyCoin"></select>
 
           <label>Cantidad</label>
-          <input id="buyAmount" type="number" min="0" step="0.0001" value="0">
+          <input id="buyAmount" type="number" step="0.0001" min="0">
 
           <label>Precio (USD)</label>
-          <input id="buyPrice" type="number" min="0" step="0.01" value="0">
+          <input id="buyPrice" type="number" step="0.01" min="0">
 
           <label>Total</label>
           <div id="buyTotal" class="total-box">$0</div>
@@ -119,26 +140,36 @@
         <div class="panel">
           <h4>Compras recientes</h4>
           <table class="simple-table" id="buyTable">
-            <thead><tr><th>ID</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead>
-            <tbody><!-- JS --></tbody>
+            <thead>
+              <tr>
+                <th>ID</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
           </table>
         </div>
       </section>
 
+      <!-- TRANSACCIONES -->
       <section id="transacciones" class="view">
         <div class="panel form-panel">
           <h3>Registrar Transacción</h3>
+
           <label>Tipo</label>
-          <select id="transType"><option>Compra</option><option>Venta</option><option>Transferencia</option></select>
+          <select id="transType">
+            <option>Compra</option>
+            <option>Venta</option>
+            <option>Transferencia</option>
+          </select>
 
           <label>Criptomoneda</label>
           <select id="transCoin"></select>
 
           <label>Cantidad</label>
-          <input id="transAmount" type="number" min="0" step="0.0001" value="0">
+          <input id="transAmount" type="number" step="0.0001" min="0">
 
           <label>Precio (USD)</label>
-          <input id="transPrice" type="number" min="0" step="0.01" value="0">
+          <input id="transPrice" type="number" step="0.01" min="0">
 
           <label>Fecha y hora</label>
           <input id="transDatetime" type="datetime-local">
@@ -151,35 +182,101 @@
         <div class="panel">
           <h4>Transacciones recientes</h4>
           <table class="simple-table" id="transTable">
-            <thead><tr><th>ID</th><th>FechaHora</th><th>Tipo</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead>
-            <tbody><!-- JS --></tbody>
+            <thead>
+              <tr>
+                <th>ID</th><th>FechaHora</th><th>Tipo</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
           </table>
         </div>
       </section>
 
+      <!-- VENTA -->
       <section id="venta" class="view">
-        <div class="panel">
-          <h3>Venta</h3>
-          <p>Funcionalidad pendiente — aquí podremos implementar venta rápida.</p>
+        <div class="grid-two">
+
+          <!-- Criptos para vender -->
+          <div class="panel portfolio-panel">
+            <div class="portfolio-head">
+              <div>
+                <div class="portfolio-title">Posiciones Disponibles</div>
+                <div class="portfolio-sub">Criptos que puedes vender</div>
+              </div>
+            </div>
+
+            <div id="sellPortfolioList" class="holdings-list"></div>
+          </div>
+
+          <!-- Precio -->
+          <div class="panel">
+            <h3>Precio Actual</h3>
+            <div id="sellCurrentPrice" class="portfolio-value">$0</div>
+            <div id="sellPriceChange" class="portfolio-change">0%</div>
+
+            <div class="chart-wrap">
+              <canvas id="sellChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Formulario de venta -->
+        <div class="panel form-panel" style="margin-top:20px;">
+          <h3>Formulario de Venta</h3>
+
+          <label>Criptomoneda</label>
+          <select id="sellCoin"></select>
+
+          <label>Cantidad a vender</label>
+          <input id="sellAmount" type="number" step="0.0001" min="0">
+
+          <label>Total a recibir</label>
+          <div id="sellTotal" class="total-box">$0</div>
+
+          <button id="sellConfirm" class="btn-primary">Confirmar Venta</button>
+        </div>
+
+        <!-- Ventas -->
+        <div class="panel" style="margin-top:20px;">
+          <h4>Ventas Realizadas</h4>
+          <table class="simple-table" id="sellTable">
+            <thead>
+              <tr>
+                <th>ID</th><th>Cripto</th><th>Cantidad</th><th>Precio</th><th>Total</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
       </section>
 
+      <!-- IA -->
       <section id="ia" class="view">
-        <div class="panel">
-          <h3>IA</h3>
-          <p>Asistente IA (próximamente).</p>
+        <div class="panel form-panel">
+          <h3>Asistente Inteligente</h3>
+          <p class="small">Haz una pregunta sobre el mercado, criptos o tu portafolio.</p>
+
+          <label>Consulta</label>
+
+          <div class="crypto-tip">
+            💡 <span>Ejemplo:</span> ¿Qué criptomoneda tuvo mejor rendimiento esta semana?
+          </div>
+
+          <button id="iaAsk" class="btn-primary">Preguntar a la IA</button>
+        </div>
+
+        <div class="panel" style="margin-top:20px;">
+          <h4>Respuesta de la IA</h4>
+          <div id="iaAnswer" class="ai-box"></div>
         </div>
       </section>
 
-      <section id="admin" class="view">
-        <div class="panel">
-          <h3>Admin</h3>
-          <p>Panel administrativo.</p>
-        </div>
-      </section>
     </main>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Tu script principal -->
+  <script src="script.js" defer></script>
+
 </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador – CryptoIA</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="admin-container">
+
+        <nav class="admin-nav">
+            <h1 class="title">Panel <span>Administrador</span></h1>
+            <button id="logoutBtn" class="logout">Cerrar Sesión</button>
+        </nav>
+
+        <section class="admin-info">
+            <h2>Bienvenido, <span id="adminName"></span></h2>
+            <p class="role">Rol: Administrador</p>
+            <p class="balance">Saldo actual: <span id="adminBalance"></span></p>
+        </section>
+
+        <section class="admin-actions">
+            <h3>Acciones de Control</h3>
+
+            <div class="card-grid">
+
+                <div class="card">
+                    <h4>📊 Ver estadísticas</h4>
+                    <p>Revisa la actividad total de la plataforma.</p>
+                </div>
+
+                <div class="card">
+                    <h4>👥 Gestionar usuarios</h4>
+                    <p>Crea, edita o elimina usuarios.</p>
+                </div>
+
+                <div class="card">
+                    <h4>💸 Transacciones manuales</h4>
+                    <p>Registrar compras o ventas directas.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🧾 Exportar reportes</h4>
+                    <p>Descarga información detallada.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

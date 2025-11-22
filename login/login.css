@@ -1,137 +1,103 @@
-:root {
-  --bg-gradient: linear-gradient(135deg, #4b6cb7, #182848);
-  --card-bg: #ffffff;
-  --text-color: #333;
-  --primary-color: #4b6cb7;
-}
-
-body.dark-mode {
-  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: #1c1c1c;
-  --text-color: #f0f0f0;
-  --primary-color: #00bcd4;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
+/* FUENTE GENERAL */
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg-gradient);
-  transition: background 0.4s;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #0a0f24, #1d2743);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* CONTENEDOR GENERAL */
+.login-wrapper {
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
 }
 
+/* TARJETA */
 .login-card {
-  background: var(--card-bg);
-  padding: 40px 50px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  position: relative;
-  width: 350px;
-  transition: background 0.4s, color 0.4s;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 35px 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
 }
 
-.login-card h1 {
-  font-weight: 600;
-  font-size: 2rem;
-  color: var(--text-color);
+/* TITULO */
+.title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.login-card h1 span {
-  color: var(--primary-color);
+.title span {
+    color: #00d4ff;
 }
 
+/* SUBTITULO */
 .subtitle {
-  color: var(--text-color);
-  opacity: 0.8;
-  font-size: 0.9rem;
-  margin-bottom: 25px;
+    color: #b8c0d1;
+    font-weight: 300;
+    margin-bottom: 25px;
 }
 
-.input-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  padding: 10px 15px;
-  transition: background 0.3s;
+/* INPUTS */
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
 }
 
-.input-group:hover {
-  background: rgba(0, 0, 0, 0.1);
+label {
+    color: #d6d9e4;
+    font-size: 0.9rem;
 }
 
-.input-group label {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-  margin-right: 10px;
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: 0.2s;
 }
 
-.input-group input {
-  border: none;
-  outline: none;
-  background: transparent;
-  color: var(--text-color);
-  flex: 1;
-  font-size: 1rem;
+input:focus {
+    background: rgba(255, 255, 255, 0.18);
 }
 
-.btn-login {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 10px;
-  transition: transform 0.2s, background 0.3s;
+/* BOTÓN */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 12px;
+    color: #0a0f15;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.25s;
 }
 
-.btn-login:hover {
-  transform: scale(1.03);
-  background: #3450a1;
+.btn-primary:hover {
+    background: #00e1ff;
+    transform: translateY(-2px);
 }
 
-.note {
-  margin-top: 15px;
-  font-size: 0.85rem;
-  color: var(--text-color);
-  opacity: 0.7;
-}
-
-.theme-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--primary-color);
-  color: white;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.theme-toggle:hover {
-  transform: rotate(20deg);
+/* ERROR */
+.error {
+    color: #ff6b6b;
+    margin-top: 12px;
+    font-size: 0.9rem;
 }
